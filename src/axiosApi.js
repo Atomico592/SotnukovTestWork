@@ -1,7 +1,8 @@
-import axios from "axios";
+import axios from 'axios'
+import { apiUrl } from './config'
 
 const axiosApi = axios.create({
-    baseUrl: "https://jsonplaceholder.typicode.com"
+    baseURL: apiUrl,
 })
 
 export default axiosApi

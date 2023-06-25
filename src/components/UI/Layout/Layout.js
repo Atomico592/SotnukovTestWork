@@ -5,7 +5,7 @@ import {Container} from "@mui/material";
 const Layout = ({children}) => {
     return (
         <>
-            <AppToolBar/>
+            {/*<AppToolBar/>*/}
             <Container maxWidth="1200px">
                 {children}
             </Container>

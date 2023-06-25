@@ -5,6 +5,7 @@ import App from './App';
 import {Router} from "react-router-dom";
 import history from "./history";
 import {Provider} from "react-redux";
+import store from "./store/configureStore";
 
 const app = (
     <Provider store={store}>

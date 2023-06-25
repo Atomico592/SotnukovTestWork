@@ -7,10 +7,9 @@ import  {
 } from "../actions/todosActions"
 import axiosApi from "../../axiosApi";
 
-
 export function* fetchTodosSaga() {
     try {
-            const {data} = yield axiosApi("/todos")
+        const {data} = yield axiosApi("/todos")
         if (data) {
             yield put(todosSuccess(data))
         }

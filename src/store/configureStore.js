@@ -1,39 +1,30 @@
-import {combineReducers} from "redux";
-import createSagaMiddleware from "redux-saga";
-import {loadFromLocalStorage} from "./localStorage";
-import rootSagas from "./rootSagas";
-import {configureStore} from "@reduxjs/toolkit";
-import axiosApi from "../axiosApi";
-import postsSlice from "./slice/postsSlice";
-import albumsSlice from "./slice/albumsSlice";
-import todosSlice from "./slice/todosSlice";
+import createSagaMiddleware from 'redux-saga'
+import { configureStore } from '@reduxjs/toolkit'
+import axiosApi from '../axiosApi'
+import rootReducer from './rootReducer'
+import rootSagas from './rootSagas'
 
-const rootReducer = combineReducers({
-  posts: postsSlice.reducer,
-  albums: albumsSlice.reducer,
-  todos: todosSlice.reducer,
-});
+const sagaMiddleware = createSagaMiddleware()
 
-const persistedState = loadFromLocalStorage();
-const sagaMiddleware = createSagaMiddleware();
-const middleware = [
-    sagaMiddleware
-]
 const store = configureStore({
   reducer: rootReducer,
-  middleware,
+  middleware: [sagaMiddleware],
   devTools: true,
-  preloadedState: persistedState,
-});
+})
 
-sagaMiddleware.run(rootSagas);
+sagaMiddleware.run(rootSagas)
 
-axiosApi.interceptors.response.use(res => res, e => {
-  if (!e.response.data) {
-    e.response = {data: {global: 'No internet!'}};
-  }
+// axiosApi.defaults.withCredentials = true
 
-  throw e;
-});
+axiosApi.interceptors.response.use(
+    res => res,
+    e => {
+      if (!e.response.data) {
+        e.response = { data: { global: 'No internet!' } }
+      }
 
-export default store;
+      throw e
+    },
+)
+
+export default store

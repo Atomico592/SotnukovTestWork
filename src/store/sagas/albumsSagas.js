@@ -1,11 +1,11 @@
 import {put, takeEvery} from "redux-saga/effects"
+import axiosApi from "../../axiosApi";
 
 import  {
     albumsRequest,
     albumsSuccess,
     albumsFailure
 } from "../actions/albumsActions"
-import axiosApi from "../../axiosApi";
 
 
 export function* fetchTodosSaga() {
