@@ -5,14 +5,19 @@ import {todosRequest} from "../../store/actions/todosActions";
 const ToDos = () => {
     const dispatch = useDispatch()
     const todos = useSelector(state => state.todos.todos)
-    console.log(todos)
+    // console.log(todos)
     useEffect(() => {
     dispatch(todosRequest())
+    }, [dispatch])
 
-    }, [])
     return (
         <div>
-    todos
+            {/*{todos.map(todo => {*/}
+            {/*    return (*/}
+            {/*        <>*/}
+            {/*        </>*/}
+            {/*    )*/}
+            {/*})}*/}
         </div>
     );
 };

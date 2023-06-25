@@ -4,12 +4,18 @@ import albumsSagas from "./sagas/albumsSagas";
 import postsSagas from "./sagas/postsSagas";
 import historySagas from "./sagas/historySagas";
 import history from "../history";
+import photosSagas from "./sagas/photosSagas";
+import commentSagas from "./sagas/commentSagas";
+import usersSagas from "./sagas/usersSagas";
 
 export default function* rootSagas() {
     yield all ([
         ...todosSagas,
         ...albumsSagas,
         ...postsSagas,
+        ...photosSagas,
+        ...commentSagas,
+        ...usersSagas,
         ...historySagas(history)
     ]);
 }

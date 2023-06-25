@@ -1,7 +1,6 @@
-import React, {useEffect} from 'react';
+import React  from 'react';
 import {Switch, Route} from "react-router-dom";
 import Layout from "./components/UI/Layout/Layout";
-
 import ToDos from "./container/ToDoS/ToDos";
 import Albums from "./container/Albums/Albums";
 import Posts from "./container/Posts/Posts";

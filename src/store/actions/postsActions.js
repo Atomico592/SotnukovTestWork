@@ -3,5 +3,8 @@ import postsSlice from "../slice/postsSlice";
 export const  {
     postsRequest,
     postsSuccess,
-    postsFailure
+    postsFailure,
+    deletePostsRequest,
+    deletePostsSuccess,
+    deletePostsFailure
 } = postsSlice.actions

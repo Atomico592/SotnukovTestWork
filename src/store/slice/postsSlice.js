@@ -6,6 +6,8 @@ export const initialState = {
     posts : null,
     loading: false,
     error: null,
+    deleteLoading : false,
+    deleteError: null
 }
 
 const postsSlice = createSlice({
@@ -24,6 +26,17 @@ const postsSlice = createSlice({
         postsFailure(state, action) {
           state.loading = false;
           state.error = action.payload
+        },
+        deletePostsRequest(state) {
+            state.deleteLoading = true;
+            state.deleteError = null
+        },
+        deletePostsSuccess(state) {
+            state.deleteLoading = false;
+        },
+        deletePostsFailure(state, action) {
+            state.deleteLoading = false;
+            state.deleteError = action.payload
         }
     }
 })

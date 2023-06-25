@@ -1,6 +1,7 @@
 .button {
+    margin-right: 20px;
     text-decoration: none;
-    padding: 1em 2.5em;
+    padding: 8px;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 2.5px;

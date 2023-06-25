@@ -14,7 +14,7 @@ const store = configureStore({
 
 sagaMiddleware.run(rootSagas)
 
-// axiosApi.defaults.withCredentials = true
+axiosApi.defaults.withCredentials = true
 
 axiosApi.interceptors.response.use(
     res => res,
