@@ -4,6 +4,7 @@ import albumsSlice from "./slice/albumsSlice";
 import postsSlice from "./slice/postsSlice";
 import photosSlice from "./slice/photosSlice";
 import usersSlice from "./slice/usersSlice";
+import commentSlice from "./slice/commentSlice";
 
 const rootReducer = combineReducers({
   todos: todosSlice.reducer,
@@ -11,7 +12,7 @@ const rootReducer = combineReducers({
   posts: postsSlice.reducer,
   photos: photosSlice.reducer,
   users: usersSlice.reducer,
-  comments: usersSlice.reducer
+  comments: commentSlice.reducer
 })
 
 export default rootReducer

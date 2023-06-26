@@ -7,9 +7,7 @@ import CommentIcon from '@mui/icons-material/Comment';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 
-
-// const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-const PostsCard = ({title, body, user, onDelete, onEdit, getComments, getFavorite, addStack}) => {
+const PostsCard = ({title, body, user, onDelete, onEdit, getComments, getFavorite, addStack, children}) => {
     return (
         <div style={{marginBottom: "25px"}}>
             <Card sx={{ minWidth: 275 }}>
@@ -36,6 +34,9 @@ const PostsCard = ({title, body, user, onDelete, onEdit, getComments, getFavorit
                         />
                 </CardActions>
             </Card>
+            <div>
+                {children}
+            </div>
         </div>
     );
 };

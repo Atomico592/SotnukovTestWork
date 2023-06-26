@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {Router} from "react-router-dom";
+import {BrowserRouter} from "react-router-dom";
 import App from './App';
 import {Provider} from "react-redux";
-import history from "./history";
 import store from "./store/configureStore";
-import './index.css';
+import './index.scss';
 
 const app = (
     <Provider store={store}>
-        <Router history={history}>
+        <BrowserRouter>
             <App/>
-        </Router>
+        </BrowserRouter>
     </Provider>
 );
 

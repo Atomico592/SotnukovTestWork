@@ -10,6 +10,7 @@ const App = () => {
     return (
         <Layout>
             <Switch>
+                <Route path="/" exact component={Posts}/>
                 <Route path="/posts" exact component={Posts}/>
                 <Route path="/albums" component={Albums}/>
                 <Route path="/todos" component={ToDos}/>

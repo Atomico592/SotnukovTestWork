@@ -6,5 +6,9 @@ export const  {
     postsFailure,
     deletePostsRequest,
     deletePostsSuccess,
-    deletePostsFailure
+    deletePostsFailure,
+    ClearDeletePosts,
+    editPostsRequest,
+    editPostSuccess,
+    editPostFailure
 } = postsSlice.actions

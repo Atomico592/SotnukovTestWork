@@ -3,7 +3,7 @@ import {createSlice} from "@reduxjs/toolkit";
 const name = "comment"
 
 export const initialState = {
-    comment : null,
+    comments : null,
     loading: false,
     error: null,
 }
@@ -16,10 +16,10 @@ const commentSlice = createSlice({
             state.loading = true;
             state.error = null
         },
-        commentSuccess(state, {payload: comment}) {
+        commentSuccess(state, {payload: comments}) {
             state.loading = false;
             state.error = null;
-            state.comment = comment;
+            state.comments = comments;
         },
         commentFailure(state, action) {
             state.loading = false;

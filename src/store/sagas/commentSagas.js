@@ -8,9 +8,9 @@ import  {
 } from "../actions/commentActions"
 
 
-export function* fetchTodosSaga() {
+export function* fetchCommentsSaga({payload : id}) {
     try {
-        const {data} = yield axiosApi("/comment")
+        const {data} = yield axiosApi(`/comments?postId=${id}`)
         if (data) {
             yield put(commentSuccess(data))
         }
@@ -21,7 +21,7 @@ export function* fetchTodosSaga() {
 
 
 const commentSagas = [
-    takeEvery(commentRequest, fetchTodosSaga)
+    takeEvery(commentRequest, fetchCommentsSaga)
 ]
 
 export default commentSagas
