@@ -3,7 +3,7 @@ import {CardContent, Paper, Typography} from "@mui/material";
 
 const Comments = ({user, email, text}) => {
     return (
-        <Paper>
+        <Paper style={{margin: "25px"}}>
             <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                     {user}

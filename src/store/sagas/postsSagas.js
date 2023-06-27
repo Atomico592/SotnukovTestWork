@@ -13,13 +13,11 @@ import {
 } from "../actions/postsActions"
 import axiosApi from "../../axiosApi";
 import {ToastAlert} from "../../components/UI/ToastAlert/ToastAlert";
-import {initialState} from "../slice/postsSlice";
 
-
-
-export function* fetchPostsSaga() {
+export function* fetchPostsSaga({payload: limit}) {
     try {
-        const {data} = yield axiosApi("/posts")
+
+            const {data} = yield axiosApi(limit ? `posts${limit}` : `/posts`)
         if (data) {
             yield put(postsSuccess(data))
         }
@@ -30,9 +28,8 @@ export function* fetchPostsSaga() {
 
 export function* deletePostsSaga({payload: id}) {
     try {
-        console.log(id)
         yield axiosApi.delete(`/posts/${id}`)
-        yield put(deletePostsSuccess())
+        yield put(deletePostsSuccess(id))
         yield ToastAlert({
             icon: 'success',
             title: 'Удалено',

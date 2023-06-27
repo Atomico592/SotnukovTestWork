@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Card, CardActions, CardContent, Checkbox, Typography} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -7,10 +7,11 @@ import CommentIcon from '@mui/icons-material/Comment';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 
-const PostsCard = ({title, body, user, onDelete, onEdit, getComments, getFavorite, addStack, children}) => {
+const PostsCard = ({title, body, user, onDelete, onEdit, getComments, getFavorite, addStack}) => {
+    const [checked, setChecked] = useState(false);
     return (
         <div style={{marginBottom: "25px"}}>
-            <Card sx={{ minWidth: 275 }}>
+            <Card sx={{ minWidth: 275 }} sx={{ bgcolor: checked ? "#AFEEEE" : "white"  }}>
                 <CardContent>
                     <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                         {user}
@@ -24,19 +25,18 @@ const PostsCard = ({title, body, user, onDelete, onEdit, getComments, getFavorit
                 </CardContent>
                 <CardActions>
                     <Button size="small" onClick={getFavorite} >{<FavoriteIcon/>}</Button>
-                    <Button size="small" onClick={getComments} color="success">{<CommentIcon/>}</Button>
+                    <Button size="small" onClick={getComments}  >{<CommentIcon/>}</Button>
                     <Button size="small" onClick={onEdit} >{<EditIcon/>}</Button>
                     <Button size="small" onClick={onDelete} color="error" >{<DeleteIcon/>}</Button>
                         <Checkbox
                             onClick={addStack}
+                            onChange={() => setChecked(!checked)}
+                            checked={checked}
                             icon={<BookmarkBorderIcon/>}
                             checkedIcon={<BookmarkIcon/>}
                         />
                 </CardActions>
             </Card>
-            <div>
-                {children}
-            </div>
         </div>
     );
 };

@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import {Link} from "react-router-dom";
 import {ToastContainer} from "react-toastify";
-import "./AppToolBar.css";
+import "./AppToolBar.scss";
 
 
 const darkTheme = createTheme({
@@ -30,7 +30,7 @@ const AppToolBar = () => {
                 <Toolbar>
                     <ToastContainer />
                     <Typography component="div" sx={{ flexGrow: 1 }}>
-                        <Link to="/posts" className="button">Посты</Link>
+                        <Link to="/posts" className="button" >Посты</Link>
                         <Link to="/albums" className="button">Фото</Link>
                         <Link to="/todos" className="button">Задачи</Link>
                     </Typography>

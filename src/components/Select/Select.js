@@ -2,11 +2,12 @@ import React from 'react';
 import {FormControl, NativeSelect} from "@mui/material";
 import {nanoid} from "nanoid";
 
-const Select = ({items}) => {
+const Select = ({items, handleChange, defaultValue}) => {
     return (
         <FormControl fullWidth>
             <NativeSelect
-                defaultValue={items[0]}
+                value={defaultValue}
+                onChange={handleChange}
                 inputProps={{
                     id: 'uncontrolled-native',
                 }}
