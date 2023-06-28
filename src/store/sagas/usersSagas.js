@@ -1,11 +1,12 @@
 import {put, takeEvery} from "redux-saga/effects"
 
-import  {
+import {
     usersRequest,
     usersSuccess,
-    usersFailure
+    usersFailure, editUsersSuccess, editUsersFailure, editUsersRequest
 } from "../actions/usersActions"
 import axiosApi from "../../axiosApi";
+
 
 export function* fetchTodosSaga() {
     try {
@@ -18,9 +19,19 @@ export function* fetchTodosSaga() {
     }
 }
 
+export function* editUsersSaga({payload : data}) {
+    try {
+        yield axiosApi.put(`/users/${data.id}`, data)
+        yield put(editUsersSuccess(data))
+    }  catch (e) {
+        yield put(editUsersFailure(e.message))
+    }
+}
+
 
 const usersSagas = [
-    takeEvery(usersRequest, fetchTodosSaga)
+    takeEvery(usersRequest, fetchTodosSaga),
+    takeEvery(editUsersRequest, editUsersSaga)
 ]
 
 export default usersSagas

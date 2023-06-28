@@ -24,7 +24,23 @@ const usersSlice = createSlice({
         usersFailure(state, action) {
             state.loading = false;
             state.error = action.payload
+        },
+        editUsersRequest(state) {
+            state.loading = true;
+            state.error = null
+        },
+        editUsersSuccess(state, {payload: data}) {
+            state.loading = false;
+            state.error = null;
+            let index = state.users.findIndex(user => user.id === data.id)
+            state.user[index] = data
+        },
+        editUsersFailure(state, action) {
+            state.loading = false;
+            state.error = action.payload
         }
+
+
     }
 })
 

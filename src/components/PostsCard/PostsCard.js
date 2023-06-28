@@ -7,11 +7,14 @@ import CommentIcon from '@mui/icons-material/Comment';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 
+
 const PostsCard = ({title, body, user, onDelete, onEdit, getComments, getFavorite, addStack}) => {
     const [checked, setChecked] = useState(false);
+    const [favoriteClicked, setFavoriteClicked] = useState(false);
+    const [commentClicked, setCommentClicked] = useState(false)
     return (
         <div style={{marginBottom: "25px"}}>
-            <Card sx={{ minWidth: 275 }} sx={{ bgcolor: checked ? "#AFEEEE" : "white"  }}>
+            <Card sx={{ minWidth: 275, bgcolor: checked ? "#AFEEEE" : "white"  }} >
                 <CardContent>
                     <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                         {user}
@@ -24,10 +27,20 @@ const PostsCard = ({title, body, user, onDelete, onEdit, getComments, getFavorit
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small" onClick={getFavorite} >{<FavoriteIcon/>}</Button>
-                    <Button size="small" onClick={getComments}  >{<CommentIcon/>}</Button>
+                    <Button size="small"
+                            onClick={() => {
+                                getFavorite();
+                                setFavoriteClicked(!favoriteClicked);
+                            }}
+                            color={favoriteClicked ? "error" : "primary"}>{<FavoriteIcon/>}</Button>
+                    <Button size="small"
+                            onClick={() => {
+                                getComments();
+                                setCommentClicked(!commentClicked);
+                            }}
+                            color={commentClicked ? "success" : "primary"} >{<CommentIcon/>}</Button>
                     <Button size="small" onClick={onEdit} >{<EditIcon/>}</Button>
-                    <Button size="small" onClick={onDelete} color="error" >{<DeleteIcon/>}</Button>
+                    <Button size="small" onClick={onDelete} color="secondary" >{<DeleteIcon/>}</Button>
                         <Checkbox
                             onClick={addStack}
                             onChange={() => setChecked(!checked)}

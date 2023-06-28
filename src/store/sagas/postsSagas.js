@@ -39,10 +39,12 @@ export function* deletePostsSaga({payload: id}) {
     }
 }
 
-export function* editPostsSaga(id) {
+export function* editPostsSaga({payload : data}) {
+
+    console.log(data)
     try {
-        yield axiosApi.put(`/posts/${id}`)
-        yield put(editPostSuccess())
+        yield axiosApi.put(`/posts/${data.id}`, data)
+        yield put(editPostSuccess(data))
         yield ToastAlert({
             icon: 'success',
             title: 'Отредактировано',

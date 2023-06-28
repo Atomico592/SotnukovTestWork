@@ -1,0 +1,24 @@
+@import '../../../../scss/style';
+
+.inputStyle {
+  border-radius: 90px;
+  color: black;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 10px 20px;
+  width: 50%;
+  text-overflow: ellipsis;
+  margin-bottom: 15px;
+}
+
+.textArea {
+  border: 2px solid gray;
+  border-radius: 16px;
+  resize: none;
+  position: relative;
+}
+
+.error {
+  border: 2px solid red;
+}

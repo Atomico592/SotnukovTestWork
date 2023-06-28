@@ -52,9 +52,12 @@ const postsSlice = createSlice({
             state.editLoading = true;
             state.editError = null
         },
-        editPostSuccess(state) {
+        editPostSuccess(state, {payload : data}) {
+            console.log(data)
             state.editLoading = false;
             state.editError = null;
+            let index = state.posts.findIndex(post => post.id === data.id)
+            state.posts[index] = data
         },
         editPostFailure(state, action) {
           state.editLoading = false;

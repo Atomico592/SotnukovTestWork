@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormControl, NativeSelect} from "@mui/material";
+import {FormControl, InputLabel, NativeSelect} from "@mui/material";
 import {nanoid} from "nanoid";
 
 const Select = ({items, handleChange, defaultValue}) => {
@@ -8,6 +8,7 @@ const Select = ({items, handleChange, defaultValue}) => {
             <NativeSelect
                 value={defaultValue}
                 onChange={handleChange}
+                label="Количество постов"
                 inputProps={{
                     id: 'uncontrolled-native',
                 }}
